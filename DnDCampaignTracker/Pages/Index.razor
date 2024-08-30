@@ -1,9 +1,30 @@
 ﻿@page "/"
 
+@using DnDCampaignTracker.Models 
+@inject DnDCampaignTracker.Services.CampaignService CampaignsService
+
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>DnD Campaign Tracker</h1>
 
-Welcome to your new app.
+@if (Campaigns is null)
+{
+   <h2>Opps</h2> 
+}
+else{
+    <ul>
+        @foreach(var campaign in Campaigns)
+        {
+            <li>@campaign.Title</li>
+        }
+    </ul>
+}
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private CampaignModel[] Campaigns;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Campaigns = await CampaignsService.BuildCampaignModelAsync();
+    }
+}

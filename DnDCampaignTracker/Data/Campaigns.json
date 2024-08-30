@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Divine Titans",
+    "description": "A campaign where players must battle ancient titans to save the world from destruction.",
+    "setting": "Mythical world of gods and monsters",
+    "objectives": [
+      "Defeat the titans",
+      "Uncover ancient relics",
+      "Unite the divine factions"
+    ]
+  },
+  {
+    "title": "The Dragons Watch",
+    "description": "A campaign focused on defending the kingdom from a rising threat of dragons.",
+    "setting": "Medieval fantasy world",
+    "objectives": [
+      "Protect the kingdom",
+      "Train and manage dragon hunters",
+      "Unravel the mystery behind the dragons' resurgence"
+    ]
+  }
+]
