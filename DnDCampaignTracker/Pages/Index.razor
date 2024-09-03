@@ -4,21 +4,22 @@
 @inject DnDCampaignTracker.Services.CampaignService CampaignsService
 
 <PageTitle>Index</PageTitle>
+<div class="container center">
+    <h1>DnD Campaign Tracker</h1>
 
-<h1>DnD Campaign Tracker</h1>
-
-@if (Campaigns is null)
-{
-   <h2>Opps</h2> 
-}
-else{
-    <ul>
-        @foreach(var campaign in Campaigns)
-        {
-            <li>@campaign.Title</li>
-        }
-    </ul>
-}
+    @if (Campaigns is null)
+    {
+       <h2>Opps</h2> 
+    }
+    else{
+        <ul>
+            @foreach(var campaign in Campaigns)
+            {
+                <li>@campaign.Title</li>
+            }
+        </ul>
+    }
+</div>
 
 @code {
     private CampaignModel[] Campaigns;
