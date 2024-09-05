@@ -1,0 +1,20 @@
+﻿@page "/players"
+
+@using DnDCampaignTracker.Models
+@inject DnDCampaignTracker.Services.PlayerService PlayerService
+
+<title>Index</title>
+
+@foreach(var player in PlayersList)
+{
+    <p>@player.name</p>
+}
+
+@code {
+    private PlayersModel[] PlayersList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        PlayersList = await PlayerService.AsyncBuildPlayersModel();
+    }
+}
