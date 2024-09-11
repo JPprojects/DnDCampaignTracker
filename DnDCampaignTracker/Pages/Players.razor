@@ -5,16 +5,19 @@
 
 <title>Index</title>
 
-@foreach(var player in PlayersList)
+@if(PlayersList is null)
 {
-    <p>@player.name</p>
+    <p>Loading.....</p>
+}
+else{
+    @foreach(var player in PlayersList)
+    {
+        <p>@player.Name</p>
+    }
 }
 
 @code {
-    private PlayersModel[] PlayersList;
+    private List<PlayersModel>? PlayersList;
 
-    protected override async Task OnInitializedAsync()
-    {
-        PlayersList = await PlayerService.AsyncBuildPlayersModel();
-    }
+    protected override async Task OnInitializedAsync() => PlayersList = await PlayerService.AsyncBuildPlayersModel();
 }

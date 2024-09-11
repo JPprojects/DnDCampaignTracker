@@ -5,19 +5,26 @@ namespace DnDCampaignTracker.Services;
 
 public class PlayerService:BaseService
 {
-    public async Task<PlayersModel[]> AsyncBuildPlayersModel()
+    public async Task<List<PlayersModel>> AsyncBuildPlayersModel()
     {
         var model = await DeserializeJsonAsync<PlayersModel>("Players");
-        PlayersModel[] viewModels = new PlayersModel[] { };
+        var playerList = new List<PlayersModel>();
 
         foreach (var player in model)
         {
-            if (player.Campaign == "The Diving Titans")
+            if (player.Campaign == "Divine Titans")
             {
-                new PlayersModel { Name = player.Name };
+                var viewModel = new PlayersModel
+                {
+                    Campaign = player.Campaign,
+                    Name = player.Name,
+                    PlayerClass = player.PlayerClass,
+                };
+
+                playerList.Add(viewModel);
             }
         }
 
-        return viewModels;
+        return playerList;
     }
 }
