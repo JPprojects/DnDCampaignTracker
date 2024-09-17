@@ -2,6 +2,7 @@
 
 @using DnDCampaignTracker.Models
 @inject DnDCampaignTracker.Services.PlayerService PlayerService
+@inject NavigationManager NavigationManager
 
 <title>Index</title>
 
@@ -17,7 +18,15 @@ else{
 }
 
 @code {
+    [Parameter] public string Title { get; set; }
     private List<PlayersModel>? PlayersList;
 
-    protected override async Task OnInitializedAsync() => PlayersList = await PlayerService.AsyncBuildPlayersModel();
+    protected override async Task OnInitializedAsync() 
+    { 
+        var uri = new Uri(NavigationManager.Uri);
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        var title = query["title"];
+        
+        PlayersList = await PlayerService.AsyncBuildPlayersModel(title); 
+    }
 }
