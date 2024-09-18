@@ -5,6 +5,31 @@
     "playerClass": "Rogue"
   },
   {
+    "name": "Flos",
+    "campaign": "Divine Titans",
+    "playerClass": "Sorcerer"
+  },
+  {
+    "name": "Taneya",
+    "campaign": "Divine Titans",
+    "playerClass": "Monk"
+  },
+  {
+    "name": "Oken",
+    "campaign": "Divine Titans",
+    "playerClass": "Cleric"
+  },
+  {
+    "name": "Violet",
+    "campaign": "Divine Titans",
+    "playerClass": "Druid"
+  },
+  {
+    "name": "Proto",
+    "campaign": "Divine Titans",
+    "playerClass": "Fighter"
+  },
+  {
     "name": "Votfree",
     "campaign": "The Dragons Watch",
     "playerClass": "Warlock"

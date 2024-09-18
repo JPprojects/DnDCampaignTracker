@@ -11,10 +11,16 @@
     <p>Loading.....</p>
 }
 else{
-    @foreach(var player in PlayersList)
-    {
-        <p>@player.Name</p>
-    }
+    <ul class="players-list">
+        @foreach(var player in PlayersList)
+        {
+            <li class="list-unstyled">
+                <div class="player-container">
+                    <p class="player-portriat">@player.Name</p>
+                </div>
+            </li>
+        }
+    </ul>
 }
 
 @code {
