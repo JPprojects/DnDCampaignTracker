@@ -15,24 +15,36 @@ else{
         @foreach(var player in PlayersList)
         {
             <li class="list-unstyled">
-                <div class="player-container">
-                    <p class="player-portriat">@player.Name</p>
-                </div>
+                <button class="btn btn-outline-light" @onclick="() => LoadComponent(player)">
+                    <img src="@($"/Images/{player.Name}.jpeg")" class="player-portriat" alt="@player.Name"/>
+                </button>
             </li>
         }
     </ul>
 }
 
+@if (selectedPlayer is not null)
+{
+    <PlayerProfile Model="selectedPlayer"/>
+    <button  @onclick="() => LoadComponent(null)">Close</button>
+}
+
 @code {
     [Parameter] public string Title { get; set; }
-    private List<PlayersModel>? PlayersList;
+    private List<PlayerModel>? PlayersList;
+    private PlayerModel selectedPlayer;
 
     protected override async Task OnInitializedAsync() 
     { 
         var uri = new Uri(NavigationManager.Uri);
         var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
         var title = query["title"];
-        
-        PlayersList = await PlayerService.AsyncBuildPlayersModel(title); 
+
+        PlayersList = await PlayerService.AsyncBuildPlayerModel(title); 
+    }
+
+    private void LoadComponent(PlayerModel player)
+    {
+        selectedPlayer = player;
     }
 }

@@ -4,8 +4,9 @@
 }
 
 .player-portriat{
-    padding: 20px;
-    margin: 0;
+    border: 7px solid black;
+    border-radius: 50%;
+    height: 150px;
 }
 
 .players-list{

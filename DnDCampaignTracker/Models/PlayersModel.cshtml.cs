@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DnDCampaignTracker.Models;
-public class PlayersModel : PageModel
+public class PlayerModel : PageModel
 {
     public string Name {get; set;}
 

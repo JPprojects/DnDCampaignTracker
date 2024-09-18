@@ -5,16 +5,16 @@ namespace DnDCampaignTracker.Services;
 
 public class PlayerService:BaseService
 {
-    public async Task<List<PlayersModel>> AsyncBuildPlayersModel(string campaign)
+    public async Task<List<PlayerModel>> AsyncBuildPlayerModel(string campaign)
     {
-        var model = await DeserializeJsonAsync<PlayersModel>("Players");
-        var playerList = new List<PlayersModel>();
+        var model = await DeserializeJsonAsync<PlayerModel>("Players");
+        var playerList = new List<PlayerModel>();
 
         foreach (var player in model)
         {
             if (player.Campaign == campaign)
             {
-                var viewModel = new PlayersModel
+                var viewModel = new PlayerModel
                 {
                     Campaign = player.Campaign,
                     Name = player.Name,
