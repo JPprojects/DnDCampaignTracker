@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Draconia",
+    "country": "Dracos Tarem",
+    "description": "Capital city",
+    "Shops": [
+      {
+        "name": "Jeweler",
+        "owner": "Mele",
+        "Items": [
+          "Amulet of health: 1000gp"
+        ]
+      },
+      {
+        "name": "Herbalist",
+        "owner": "Mele",
+        "Items": [
+          "Potion: 100gp"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Kingdom of Lunalis",
+    "country": "Dracos Tarem",
+    "description": "Rainforest",
+    "Shops": [
+      {
+        "name": "Jeweler",
+        "owner": "Mele",
+        "Items": [
+          "Amulet of health: 1000gp"
+        ]
+      },
+      {
+        "name": "Herbalist",
+        "owner": "Mele",
+        "Items": [
+          "Potion: 100gp"
+        ]
+      }
+    ]
+  }
+]
