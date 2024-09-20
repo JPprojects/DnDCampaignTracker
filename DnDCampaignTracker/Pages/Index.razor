@@ -2,20 +2,23 @@
 
 @using DnDCampaignTracker.Models 
 @inject DnDCampaignTracker.Services.CampaignService CampaignsService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Index</PageTitle>
+
 <div class="container center">
     <h1>DnD Campaign Tracker</h1>
 
     @if (Campaigns is null)
     {
-       <h2>Opps</h2> 
+        <h2>Opps</h2> 
     }
     else{
         <ul>
             @foreach(var campaign in Campaigns)
             {
-                <li>@campaign.Title</li>
+                // Cconsider using campiagn Id in the future to make this more secure.
+                <a href="#" @onclick="() => SubmitForm(campaign.Title)">@campaign.Title</a>
             }
         </ul>
     }
@@ -28,4 +31,6 @@
     {
         Campaigns = await CampaignsService.BuildCampaignModelAsync();
     }
+
+    private void SubmitForm(string campaignTitle) => NavigationManager.NavigateTo($"/Players?title={campaignTitle}");
 }

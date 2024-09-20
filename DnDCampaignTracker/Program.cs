@@ -18,8 +18,10 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddSingleton<BaseService>();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<CampaignService>();
+builder.Services.AddSingleton<PlayerService>();
 
 var app = builder.Build();
 

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Fusk",
+    "campaign": "Divine Titans",
+    "playerClass": "Rogue"
+  },
+  {
+    "name": "Flos",
+    "campaign": "Divine Titans",
+    "playerClass": "Sorcerer"
+  },
+  {
+    "name": "Tanieya",
+    "campaign": "Divine Titans",
+    "playerClass": "Monk"
+  },
+  {
+    "name": "Oken",
+    "campaign": "Divine Titans",
+    "playerClass": "Cleric"
+  },
+  {
+    "name": "Violet",
+    "campaign": "Divine Titans",
+    "playerClass": "Druid"
+  },
+  {
+    "name": "Proto",
+    "campaign": "Divine Titans",
+    "playerClass": "Fighter"
+  },
+  {
+    "name": "Votfree",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Warlock"
+  },
+  {
+    "name": "Dam",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Fighter"
+  },
+  {
+    "name": "Calyope",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Cleric"
+  },
+  {
+    "name": "Ferro",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Sorcrer"
+  },
+  {
+    "name": "Kalakrar",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Artificer"
+  }
+]
