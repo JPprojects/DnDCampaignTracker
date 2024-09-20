@@ -33,5 +33,25 @@
     "name": "Votfree",
     "campaign": "The Dragons Watch",
     "playerClass": "Warlock"
+  },
+  {
+    "name": "Dam",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Fighter"
+  },
+  {
+    "name": "Calyope",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Cleric"
+  },
+  {
+    "name": "Ferro",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Sorcrer"
+  },
+  {
+    "name": "Kalakrar",
+    "campaign": "The Dragons Watch",
+    "playerClass": "Artificer"
   }
 ]
