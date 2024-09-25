@@ -3,13 +3,19 @@
 
 @if (Model is not null)
 {
-    <h1>@Model.Name</h1>
-    <p>Description</p>
+    foreach (var location in Model.LocationsList) 
+    {
+        <h1>@location.Name</h1>
+        <p>@location.Description</p>
+
+        foreach(var shop in location.Shops)
+        {
+            <ul>
+                <li>@shop.Name</li>
+            </ul>
+        }
+
+    }
 }
-
-<ul>
-    <li>Shops</li>
-</ul>
-
 @{
 }

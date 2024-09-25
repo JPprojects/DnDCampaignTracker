@@ -6,11 +6,7 @@ namespace DnDCampaignTracker.Pages;
 
 public class LocationsModel : PageModel
 {
-    public string Name { get; set; }
-    public string Country { get; set; }
-    public string Description { get; set; }
-
-    public List<ShopModel> Shops { get; set; }
+    public List<LocationModel> LocationsList { get; set; }
 
     public async Task OnGet()
     {
@@ -27,15 +23,20 @@ public class LocationsModel : PageModel
 
             var locationData = JsonConvert.DeserializeObject<List<LocationModel>>(jsonData);
 
+            LocationsList = new List<LocationModel>();
+
             if (locationData != null)
             {
                 foreach (var location in locationData)
                 {
-                    // Assign the deserialized values to the model properties
-                    Name = location.Name;
-                    Country = location.Country;
-                    Description = location.Description;
-                    Shops = location.Shops;
+                    LocationsList.Add(new LocationModel
+                    {
+                        // Assign the deserialized values to the model properties
+                        Name = location.Name,
+                        Country = location.Country,
+                        Description = location.Description,
+                        Shops = location.Shops,
+                    });
                 }
             }
         }
