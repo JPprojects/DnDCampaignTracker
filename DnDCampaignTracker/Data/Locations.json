@@ -1,42 +1,52 @@
 [
   {
-    "name": "Draconia",
-    "country": "Dracos Tarem",
-    "description": "Capital city",
-    "Shops": [
+    "continent": "Nicolanth",
+    "locations": [
       {
-        "name": "Jeweler",
-        "owner": "Mele",
-        "Items": [
-          "Amulet of health: 1000gp"
-        ]
-      },
-      {
-        "name": "Herbalist",
-        "owner": "Mele",
-        "Items": [
-          "Potion: 100gp"
+        "name": "Draconia",
+        "country": "Dracos Tarem",
+        "description": "Capital city",
+        "Shops": [
+          {
+            "name": "Jeweler",
+            "owner": "Mele",
+            "Items": [
+              "Amulet of health: 1000gp"
+            ]
+          },
+          {
+            "name": "Herbalist",
+            "owner": "Mele",
+            "Items": [
+              "Potion: 100gp"
+            ]
+          }
         ]
       }
     ]
   },
   {
-    "name": "Kingdom of Lunalis",
-    "country": "Dracos Tarem",
-    "description": "Rainforest",
-    "Shops": [
+    "continent": "Kingdom of Lunalis",
+    "locations": [
       {
-        "name": "Jeweler",
-        "owner": "Mele",
-        "Items": [
-          "Amulet of health: 1000gp"
-        ]
-      },
-      {
-        "name": "Herbalist",
-        "owner": "Mele",
-        "Items": [
-          "Potion: 100gp"
+        "name": "Aptonland",
+        "country": "Dracos Tarem",
+        "description": "Rainforest",
+        "Shops": [
+          {
+            "name": "Jeweler",
+            "owner": "Mele",
+            "Items": [
+              "Amulet of health: 1000gp"
+            ]
+          },
+          {
+            "name": "Herbalist",
+            "owner": "Mele",
+            "Items": [
+              "Potion: 100gp"
+            ]
+          }
         ]
       }
     ]

@@ -3,19 +3,30 @@
 
 @if (Model is not null)
 {
-    foreach (var location in Model.LocationsList) 
+    <form method="post">
+        <label for="Continents">Choose a Continent:</label>
+        <select id="Continents" name="SelectedContinent" asp-for="SelectedContinent" asp-items="Model.ContinentsSelectList" onchange="this.form.submit()">
+            <option value="">--Select a continent--</option>
+            @foreach (var continent in Model.ContinentList)
+            {
+                <option value="@continent.continent" selected="@(Model.SelectedContinent == continent.continent ? "selected" : null)">@continent.continent</option>
+            }
+        </select>
+    </form>
+
+    <!-- Display Locations of the Selected Continent -->
+    @if (Model.SelectedLocations != null && Model.SelectedLocations.Any())
     {
-        <h1>@location.Name</h1>
-        <p>@location.Description</p>
-
-        foreach(var shop in location.Shops)
-        {
-            <ul>
-                <li>@shop.Name</li>
-            </ul>
-        }
-
+        <h3>Locations in @Model.SelectedContinent:</h3>
+        <ul>
+            @foreach (var location in Model.SelectedLocations)
+            {
+                <li>@location.Name</li>
+            }
+        </ul>
     }
-}
-@{
+    else if (Model.SelectedContinent != null)
+    {
+        <p>No locations available for this continent.</p>
+    }
 }
