@@ -1,0 +1,98 @@
+﻿@page "/Location"
+@using Newtonsoft.Json
+
+@if (ContinentList is not null)
+{
+    <label for="Continents">Choose a Continent:</label>
+    <select @onchange="OnContinentChanged">
+        <option value="">--Select a continent--</option>
+        @foreach (var continent in ContinentList)
+        {
+            <option value="@continent.continent">@continent.continent</option>
+        }
+    </select>
+
+    <!-- Display Locations of the Selected Continent -->
+    @if (!string.IsNullOrEmpty(SelectedContinent) && SelectedLocations.Any())
+    {
+        <h3>Locations in @SelectedContinent:</h3>
+        <ul>
+            @foreach (var location in SelectedLocations)
+            {
+                <LocationCard Model="location" />
+            }
+        </ul>
+    }
+    else if (SelectedContinent != null)
+    {
+        <p>No locations available for this continent.</p>
+    }
+}
+
+
+@code {
+    public List<ContinentModel> ContinentList { get; set; } = new List<ContinentModel>();
+    public List<LocationModel> SelectedLocations { get; set; } = new List<LocationModel>();
+    public string SelectedContinent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load continents and locations from the JSON file (or database)
+        await PopulateContinentsAsync();
+    }
+
+    private async Task PopulateContinentsAsync()
+    {
+        // Simulate loading from a JSON file in the 'Data' folder
+        string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "locations.json");
+
+        if (!File.Exists(filePath))
+        {
+            // Handle missing file
+            Console.WriteLine("Location data not found.");
+            return;
+        }
+
+        var jsonData = await File.ReadAllTextAsync(filePath);
+        var locationData = JsonConvert.DeserializeObject<List<ContinentModel>>(jsonData);
+
+        ContinentList = locationData ?? new List<ContinentModel>();
+    }
+
+    private void OnContinentChanged(ChangeEventArgs e)
+    {
+        SelectedContinent = e.Value.ToString();
+
+        if (!string.IsNullOrEmpty(SelectedContinent))
+        {
+            var selectedContinent = ContinentList.FirstOrDefault(c => c.continent == SelectedContinent);
+            SelectedLocations = selectedContinent?.locations ?? new List<LocationModel>();
+        }
+        else
+        {
+            SelectedLocations.Clear();
+        }
+    }
+
+    // Data models for Continent, Location, and Shop
+    public class ContinentModel
+    {
+        public string continent { get; set; }
+        public List<LocationModel> locations { get; set; }
+    }
+
+    public class LocationModel
+    {
+        public string Name { get; set; }
+        public string Country { get; set; }
+        public string Description { get; set; }
+        public List<ShopModel> Shops { get; set; }
+    }
+
+    public class ShopModel
+    {
+        public string Name { get; set; }
+        public string Owner { get; set; }
+        public List<string> Items { get; set; }
+    }
+}
