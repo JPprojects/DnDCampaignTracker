@@ -1,8 +1,33 @@
 ﻿@using static DnDCampaignTracker.Pages.Locations
 
-<p>Hello</p>
+<div>
+    <h2>@Model.Name</h2>
+    <p>@Model.Description</p>
+
+    <div class="tabs">
+      @foreach (var shop in @Model.Shops) {
+          <button @onclick="() => LoadComponent(shop)">@shop.Name</button>
+      }
+    </div>
+
+    <ul>
+        @if (items is not null)
+        {
+            @foreach (var item in items)
+            {
+                <li>@item</li>
+            }
+        }
+    </ul>
+</div>
 
 @code {
     [Parameter]
     public LocationModel Model { get; set; }
+    public List<string> items { get; set; } 
+
+    private void LoadComponent(ShopModel shop)
+    {
+        items = shop.Items;
+    }
 }
