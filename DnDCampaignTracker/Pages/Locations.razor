@@ -16,7 +16,7 @@
     @if (!string.IsNullOrEmpty(SelectedContinent) && SelectedLocations.Any())
     {
         <h3>Locations in @SelectedContinent:</h3>
-        <ul>
+        <ul class="list--no-style card-list">
             @foreach (var location in SelectedLocations)
             {
                 <LocationCard Model="location" />

@@ -22,6 +22,27 @@
             ]
           }
         ]
+      },
+      {
+        "name": "Avry",
+        "country": "Dracos Tarem",
+        "description": "The sky city",
+        "Shops": [
+          {
+            "name": "Jeweler",
+            "owner": "Mele",
+            "Items": [
+              "Amulet of health: 1000gp"
+            ]
+          },
+          {
+            "name": "Herbalist",
+            "owner": "Mele",
+            "Items": [
+              "Potion: 100gp"
+            ]
+          }
+        ]
       }
     ]
   },

@@ -1,16 +1,16 @@
 ﻿@using static DnDCampaignTracker.Pages.Locations
 
-<div>
+<li class="card">
     <h2>@Model.Name</h2>
     <p>@Model.Description</p>
 
     <div class="tabs">
       @foreach (var shop in @Model.Shops) {
-          <button @onclick="() => LoadComponent(shop)">@shop.Name</button>
+          <button class="tab" @onclick="() => LoadComponent(shop)">@shop.Name</button>
       }
     </div>
 
-    <ul>
+    <ul class="list--no-style">
         @if (items is not null)
         {
             @foreach (var item in items)
@@ -19,7 +19,7 @@
             }
         }
     </ul>
-</div>
+</li>
 
 @code {
     [Parameter]
